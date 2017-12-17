@@ -15,9 +15,6 @@ public class Location
 		this.y = py;
 	}
 	
-	public int getX() {return this.x;}
-	public int getY() {return this.y;}
-	
 	public int getDistance(Location l)
 	{
 		return (Math.abs(this.x - l.x) + Math.abs(this.y - l.y));
@@ -34,4 +31,7 @@ public class Location
 	{
 		return "("+this.x+","+this.y+")";
 	}
+	
+	public int getX() {return this.x;}
+	public int getY() {return this.y;}
 }

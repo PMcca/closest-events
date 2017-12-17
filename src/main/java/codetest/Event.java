@@ -15,6 +15,18 @@ public class Event
 		tickets = ticks;
 	}
 	
+	public Ticket getCheapestTicket()
+	{
+		Ticket tick = null;
+		
+		for(Ticket t : tickets) {
+			if(tick == null || t.getPrice() < tick.getPrice())
+				tick = t;
+		}
+		
+		return tick;
+	}
+	
 	public int getID() {return this.eventID;}
 	
 	public Location getLocation() {return this.location;}
