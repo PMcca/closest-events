@@ -12,19 +12,37 @@ public class Main
 	{
 		EventDatabase database = new EventDatabase();
 		
-		out.println("Generating " + TEST_DATA_COUNT + " events...");
+		out.printf("Generating %d events...\n", TEST_DATA_COUNT);
 		DataGen.genTestdata(TEST_DATA_COUNT, database);
 		
+		out.println("Enter a pair of coordinates of the form x,y");
+		
 		Scanner scn = new Scanner(System.in);
-		String input;
-		
-		//out.println("Enter a pair of the coordinates of the form x,y");
-		
-		List<Event> closestEvents = database.findClosestEvents(new Location(4,2));
-		
-		out.println("The " + MAX_OUTPUT_COUNT + " closest events to (4,2) are:");
-		for(Event evt : closestEvents)
-			out.println("Event: " + evt.getID() + ". Location: " + evt.getLocation() + ". Distance: " + new Location(4,2).getDistance((evt.getLocation())));
-		
+		while(scn.hasNext())
+		{
+			String input = scn.nextLine();
+			Location inputLocation;
+			
+			if(input.equalsIgnoreCase("exit"))
+				System.exit(0);
+			
+			try 
+			{
+				inputLocation = Location.parseLocation(input);
+			}
+			
+			catch (IllegalArgumentException e)
+			{
+				out.printf("Error! Could not parse \"%s\"\n", input);
+				continue;
+			}
+			
+			List<Event> closestEvents = database.findClosestEvents(inputLocation);
+			
+			out.printf("The %d closest events to %s are:\n", MAX_OUTPUT_COUNT, inputLocation.toString());
+			for(Event evt : closestEvents)
+				out.printf("Event: %d, Location: %s, Distance: %d\n", evt.getID(), evt.getLocation(), inputLocation.getDistance(evt.getLocation()));
+				//out.println("Event: " + evt.getID() + ". Location: " + evt.getLocation() + ". Distance: " + inputLocation.getDistance((evt.getLocation())));
+		}
 	}
 }

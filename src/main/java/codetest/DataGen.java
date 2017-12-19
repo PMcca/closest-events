@@ -1,7 +1,7 @@
 package codetest;
 import java.util.*;
 
-public class DataGen implements Comparator<Float> 
+public class DataGen
 {
 	
 	private static final float MAX_TICKET_PRICE = 100f;
@@ -30,7 +30,7 @@ public class DataGen implements Comparator<Float>
 				if(rng.nextBoolean())
 					y = -y;
 				
-				tempLocation = new Location(x, y);;
+				tempLocation = new Location(x, y);
 			
 				Event tempEvent = database.getEventAtLocation(tempLocation);
 				if(tempEvent != null)
@@ -41,14 +41,5 @@ public class DataGen implements Comparator<Float>
 			
 			database.addEvent(tempLocation, new Event(i+1, tempLocation, tickets));
 		}
-	}
-	
-	public int compare(Float obj1, Float obj2)
-	{
-		if(obj1 < obj2)
-			return -1;
-		if (obj1 > obj2)
-			return 1;
-		return 0;
 	}
 }

@@ -41,7 +41,7 @@ public class EventDatabase
 		//Load k amount of events into closestEvents. 
 		for(int i = 0; i < Main.MAX_OUTPUT_COUNT; i++)
 			closestEvents.add(foundEvents.get(i).getEvent());
-		
+	
 		return closestEvents;
 	}
 	
