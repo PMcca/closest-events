@@ -8,4 +8,6 @@ While this program works well enough for the given map size of -1o to 10, a more
 
 There may also be a need for more sophisticated algorithms also. A 'maximum distance' search could be used if the ratio between the number of events and world size were close enough; The probability of a 'close event' being within a closer range would be higher, so limiting the search range to this may be more efficient. 
 
-This implementation also only allows for one event per location. If multiple events were to be permitted for a single location, a 2-dimensional ArrayList may be used to hold each event present there. Then another for loop could be used for each time the list of events needed to be iterated through. 
+This implementation also only allows for one event per location. If multiple events were to be permitted for a single location, the hash map would hold separate lists for its value instead of single events, effectively creating a chained list for each hash entry.
+
+
