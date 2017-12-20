@@ -11,28 +11,17 @@ public class Location
 	
 	public Location(int px, int py) 
 	{
-		if(px < MIN_LOCATION_SIZE)
-			x = MIN_LOCATION_SIZE;
-		else if(px > MAX_LOCATION_SIZE)
-			x = MAX_LOCATION_SIZE;
-		else
 			this.x = px;
-		
-		if(py < MIN_LOCATION_SIZE)
-			y = MIN_LOCATION_SIZE;
-		else if(py > MAX_LOCATION_SIZE)
-			y = MAX_LOCATION_SIZE;
-		else
 			this.y = py;
 	}
 	
 	public int getDistance(Location l)
 	{
-		return (Math.abs(this.x - l.x) + Math.abs(this.y - l.y));
+		return (Math.abs(this.x - l.x) + Math.abs(this.y - l.y)); //Mahnattan distance for this object and l
 	}
 	
 	@Override
-	public int hashCode()
+	public int hashCode() //Return a unique hashcode based on a location.
 	{
 		return Objects.hash(this.x, this.y);
 	}
@@ -40,10 +29,16 @@ public class Location
 	public static Location parseLocation(String input)
 	{
 		String coordinates [] = input.split(",");
-		if(coordinates.length != 2)
-			throw new IllegalArgumentException("Error! Could not parse location.");
+		if(coordinates.length != 2) //Ensure only two numbers are inputted.
+			throw new IllegalArgumentException("Incorrect input format.");
 		
-		return new Location (Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]));
+		int x = Integer.parseInt(coordinates[0]);
+		int y = Integer.parseInt(coordinates[1]);
+		
+		if((x < MIN_LOCATION_SIZE) || (y < MIN_LOCATION_SIZE) || (x > MAX_LOCATION_SIZE) || (y > MAX_LOCATION_SIZE)) //Ensure coordinates are within range.
+			throw new IllegalArgumentException ("Coordinate(s) out of range."); 
+		
+		return new Location (x, y);
 	}
 	
 	@Override

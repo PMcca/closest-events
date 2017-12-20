@@ -40,9 +40,10 @@ public class Main
 			List<Event> closestEvents = database.findClosestEvents(inputLocation);
 			
 			out.printf("The %d closest events to %s are:\n", MAX_OUTPUT_COUNT, inputLocation.toString());
-			for(Event evt : closestEvents)
+			for(Event evt : closestEvents) {
 				out.printf("Event: %d, Location: %s, Distance: %d\n", evt.getID(), evt.getLocation(), inputLocation.getDistance(evt.getLocation()));
-				//out.println("Event: " + evt.getID() + ". Location: " + evt.getLocation() + ". Distance: " + inputLocation.getDistance((evt.getLocation())));
+				out.printf("Cheapest Ticket: $%.2f\n\n", evt.getCheapestTicket().getPrice());
+			}
 		}
 	}
 }

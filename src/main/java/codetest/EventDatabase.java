@@ -21,7 +21,7 @@ public class EventDatabase
 				Location location2 = new Location(x, y);
 				int distance = location.getDistance(location2);
 				
-				foundEvents.add(new FoundEvent(getEventAtLocation(location2), distance));				
+				foundEvents.add(new FoundEvent(getEventAtLocation(location2), distance));			
 			}
 		}
 		
@@ -60,7 +60,6 @@ public class EventDatabase
 		events.put(loc.hashCode(), evt);
 	}
 	
-	public Map<Integer, Event> getAllEvents() {return this.events;}
 	
 	//Nested class for dealing with events and distances
 	private class FoundEvent

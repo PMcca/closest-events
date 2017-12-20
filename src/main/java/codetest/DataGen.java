@@ -12,13 +12,13 @@ public class DataGen
 		
 		for(int i = 0; i < TEST_COUNT; i++)
 		{
-			//Generate tickets
-			int ticketCount = rng.nextInt(10);
+			//Generate randomly priced tickets
+			int ticketCount = rng.nextInt(10) + 1; //Between 1 and 11
 			List<Ticket> tickets = new ArrayList<Ticket>(ticketCount);
 			for(int j = 0; j < ticketCount; j++)
 				tickets.add(new Ticket(rng.nextFloat() * MAX_TICKET_PRICE));
 			
-			//Generate locations
+			//Generate random locations
 			Location tempLocation = null;
 			while(tempLocation == null)
 			{
@@ -31,8 +31,8 @@ public class DataGen
 					y = -y;
 				
 				tempLocation = new Location(x, y);
-			
-				Event tempEvent = database.getEventAtLocation(tempLocation);
+				
+				Event tempEvent = database.getEventAtLocation(tempLocation); //If an event already exists at tempLocation, continue while loop.
 				if(tempEvent != null)
 				{
 					tempLocation = null;
