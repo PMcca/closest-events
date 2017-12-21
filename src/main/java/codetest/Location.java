@@ -1,5 +1,10 @@
-//package codetest;
+package codetest;
 import java.util.*;
+
+/**
+ * Represents a location given by (x,y) in 2D world space.
+ * A location defines where an event is in the world.
+*/
 
 public class Location 
 {

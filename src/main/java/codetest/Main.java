@@ -1,4 +1,4 @@
-//package codetest;
+package codetest;
 
 import static java.lang.System.out;
 import java.util.*;
@@ -29,7 +29,7 @@ public class Main
 			
 			try 
 			{
-				inputLocation = Location.parseLocation(input);
+				inputLocation = Location.parseLocation(input); //Get location from input string
 			}
 			
 			catch (IllegalArgumentException e)
@@ -38,7 +38,7 @@ public class Main
 				continue;
 			}
 			
-			List<Event> closestEvents = database.findClosestEvents(inputLocation, MAX_OUTPUT_COUNT);
+			List<Event> closestEvents = database.findClosestEvents(inputLocation, MAX_OUTPUT_COUNT); //Get a sorted list of closest events
 			
 			out.printf("The %d closest events to %s are:\n", MAX_OUTPUT_COUNT, inputLocation.toString());
 			for(Event evt : closestEvents) {

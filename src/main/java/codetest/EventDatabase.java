@@ -1,8 +1,8 @@
-//package codetest;
+package codetest;
 import java.util.*;
 
 /**
-Holds and manipulates events in various data structures to return.
+ * Holds and manipulates events in various data structures to return.
 */
 
 public class EventDatabase 

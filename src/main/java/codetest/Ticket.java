@@ -1,4 +1,9 @@
-//package codetest;
+package codetest;
+
+/**
+ * A single ticket with a price. 
+ * A ticket is associated with a single event. 
+*/
 
 public class Ticket 
 {

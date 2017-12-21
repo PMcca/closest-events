@@ -1,8 +1,8 @@
-//package codetest;
+package codetest;
 import java.util.*;
 
 /**
-Event represents a single event, with a specified location and ID.
+ * Event represents a single event, with a specified location and ID.
 */
 
 public class Event 
