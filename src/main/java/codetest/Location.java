@@ -5,6 +5,7 @@ public class Location
 {
 	public static final int MAX_LOCATION_SIZE = 10;
 	public static final int MIN_LOCATION_SIZE = -10;
+	public static final int MAX_NUMBER_OF_LOCATIONS = (int) Math.pow(((Math.abs(MIN_LOCATION_SIZE) + Math.abs(MAX_LOCATION_SIZE)) +1), 2); //Assumes a 2D world space
 	
 	private int x;
 	private int y;

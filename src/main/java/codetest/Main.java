@@ -5,12 +5,13 @@ import java.util.*;
 
 public class Main 
 {
-	public static final int TEST_DATA_COUNT = 30;
+	private static final int TEST_DATA_COUNT = 442;
 	private static final int MAX_OUTPUT_COUNT = 5;
 	
 	public static void main(String args[])
 	{
 		EventDatabase database = new EventDatabase();
+		
 		
 		out.printf("Generating %d events...\n", TEST_DATA_COUNT);
 		DataGen.genTestdata(TEST_DATA_COUNT, database);
@@ -48,7 +49,7 @@ public class Main
 				}
 				catch (Exception ex)
 				{
-					out.println("No tickets available");
+					out.println("No tickets available\n");
 				}
 			}
 		}

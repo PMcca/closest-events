@@ -53,6 +53,8 @@ public class EventDatabase
 		events.put(loc.hashCode(), evt);
 	}
 	
+	public int getEventsSize(){return this.events.size();}
+	
 	
 	//Nested class for dealing with events and distances
 	private class FoundEvent
