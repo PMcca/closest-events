@@ -1,12 +1,16 @@
-package codetest;
+//package codetest;
 import java.util.*;
+
+/**
+Event represents a single event, with a specified location and ID.
+*/
 
 public class Event 
 {
 	private final int eventID;
-	private Location location;
+	private final Location location;
 	
-	List<Ticket> tickets;
+	private List<Ticket> tickets;
 	
 	public Event(int id, Location loc, List<Ticket> ticks)
 	{
@@ -15,6 +19,7 @@ public class Event
 		tickets = ticks;
 	}
 	
+	//Returns cheapest ticket in list, or null if no tickets found.
 	public Ticket getCheapestTicket()
 	{
 		Ticket tick = null;

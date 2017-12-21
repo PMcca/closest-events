@@ -1,5 +1,9 @@
-package codetest;
+//package codetest;
 import java.util.*;
+
+/**
+ * Generates random test data.
+*/
 
 public class DataGen
 {
@@ -22,7 +26,7 @@ public class DataGen
 			Location tempLocation = null;
 			while(tempLocation == null)
 			{
-				int x = rng.nextInt(Location.MAX_LOCATION_SIZE+1);
+				int x = rng.nextInt(Location.MAX_LOCATION_SIZE);
 				if(rng.nextBoolean())
 					x = -x;
 				

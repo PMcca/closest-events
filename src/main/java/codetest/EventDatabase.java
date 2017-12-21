@@ -1,28 +1,24 @@
-package codetest;
+//package codetest;
 import java.util.*;
+
+/**
+Holds and manipulates events in various data structures to return.
+*/
 
 public class EventDatabase 
 {
 	private final Map<Integer, Event> events = new HashMap<Integer, Event>();
 	
-	
-	public List<Event> findClosestEvents(Location location)
+	//Return a list of OUTPUT_COUNT closest events relative to location.
+	public List<Event> findClosestEvents(Location location, final int OUTPUT_COUNT)
 	{
 		List<Event> closestEvents = new ArrayList<Event>();
 		List<FoundEvent> foundEvents = new ArrayList<FoundEvent>();
 		
-		//Iterate over grid, add any locations to foundEvents.
-		for(int x = Location.MIN_LOCATION_SIZE; x <= Location.MAX_LOCATION_SIZE; x++){
-			for(int y = Location.MIN_LOCATION_SIZE; y <= Location.MAX_LOCATION_SIZE; y++){
-				
-				if(!eventExistsAtLocation(new Location(x,y)))
-					continue;
-				
-				Location location2 = new Location(x, y);
-				int distance = location.getDistance(location2);
-				
-				foundEvents.add(new FoundEvent(getEventAtLocation(location2), distance));			
-			}
+		//Add all events to foundEvents
+		for(Event evt : events.values())
+		{
+				foundEvents.add(new FoundEvent(evt, location.getDistance(evt.getLocation())));
 		}
 		
 		//Sort by distance in ascending order
@@ -39,22 +35,19 @@ public class EventDatabase
 		});
 		
 		//Load k amount of events into closestEvents. 
-		for(int i = 0; i < Main.MAX_OUTPUT_COUNT; i++)
+		for(int i = 0; i < OUTPUT_COUNT; i++)
 			closestEvents.add(foundEvents.get(i).getEvent());
 	
 		return closestEvents;
 	}
 	
+	//Return the event held in the events hashmap given by loc, or null if no event found.
 	public Event getEventAtLocation(Location loc)
 	{		
 		return events.containsKey(loc.hashCode()) ? events.get(loc.hashCode()) : null;
 	}
 	
-	private boolean eventExistsAtLocation(Location loc)
-	{
-		return events.containsKey(loc.hashCode());
-	}
-	
+	//Adds an Event evt to the hash given by loc.
 	public void addEvent(Location loc, Event evt)
 	{
 		events.put(loc.hashCode(), evt);

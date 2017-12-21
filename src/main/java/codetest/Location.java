@@ -1,4 +1,4 @@
-package codetest;
+//package codetest;
 import java.util.*;
 
 public class Location 
@@ -32,8 +32,8 @@ public class Location
 		if(coordinates.length != 2) //Ensure only two numbers are inputted.
 			throw new IllegalArgumentException("Incorrect input format.");
 		
-		int x = Integer.parseInt(coordinates[0]);
-		int y = Integer.parseInt(coordinates[1]);
+		int x = Integer.parseInt(coordinates[0].trim());
+		int y = Integer.parseInt(coordinates[1].trim());
 		
 		if((x < MIN_LOCATION_SIZE) || (y < MIN_LOCATION_SIZE) || (x > MAX_LOCATION_SIZE) || (y > MAX_LOCATION_SIZE)) //Ensure coordinates are within range.
 			throw new IllegalArgumentException ("Coordinate(s) out of range."); 
@@ -44,7 +44,7 @@ public class Location
 	@Override
 	public String toString()
 	{
-		return "("+this.x+","+this.y+")";
+		return String.format("(%d,%d)", this.x, this.y);
 	}
 	
 	public int getX() {return this.x;}
