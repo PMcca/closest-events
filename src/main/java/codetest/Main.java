@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main 
 {
-	private static final int TEST_DATA_COUNT = 442;
+	private static final int TEST_DATA_COUNT = 50;
 	private static final int MAX_OUTPUT_COUNT = 5;
 	
 	public static void main(String args[])

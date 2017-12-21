@@ -18,9 +18,7 @@ public class DataGen
 		{
 			TEST_COUNT = Location.MAX_NUMBER_OF_LOCATIONS;
 			System.out.printf("TEST_COUNT over limit. Generating max number of events (%d)\n", TEST_COUNT);
-		}
-		
-		System.out.println(TEST_COUNT);
+		}		
 		
 		for(int i = 0; i < TEST_COUNT; i++)
 		{
