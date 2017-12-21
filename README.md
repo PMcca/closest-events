@@ -1,5 +1,5 @@
 # closest-events
-This program will return the k closest events to a randomly generated set of n events. Given a coordinate (x,y), the program will return the location, distance to and cheapest ticket price of the k closest events to the give location. This particular implementation assumes that the world space is given in integers (not in floating point) 
+This program will return the k closest events to a randomly generated set of n events. Given a coordinate (x,y), the program will return the location, distance to and cheapest ticket price of the k closest events to the given location. This particular implementation assumes that the world space is given in integers (not in floating point).
 
 ## Building
 
